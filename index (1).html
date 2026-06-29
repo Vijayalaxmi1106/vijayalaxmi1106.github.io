@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vijaya Laxmi Boda — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;
+  --bg2:#f8f7ff;
+  --card:#ffffff;
+  --border:#ece9f8;
+  --purple:#7c3aed;
+  --purple-light:#f3f0ff;
+  --purple-mid:#9d6ef7;
+  --text:#1a1a2e;
+  --muted:#64648a;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 6%;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{width:36px;height:36px;background:var(--purple);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.87rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--purple)}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 6% 60px;background:var(--bg)}
+.hero-inner{max-width:800px}
+.hero-eyebrow{font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--purple)}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5rem);font-weight:700;color:var(--text);line-height:1.1;margin-bottom:24px}
+.hero-name span{color:var(--purple)}
+.hero-desc{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.85;margin-bottom:36px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.hero-tag{padding:6px 14px;background:var(--purple-light);color:var(--purple);border-radius:999px;font-size:0.78rem;font-weight:500}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{background:#6d28d9}
+.btn-outline{border:1.5px solid var(--border);color:var(--text);background:transparent}
+.btn-outline:hover{border-color:var(--purple);color:var(--purple)}
+.hero-stats{display:flex;gap:48px;padding-top:40px;border-top:1px solid var(--border)}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--purple)}
+.stat-label{font-size:0.78rem;color:var(--muted);margin-top:2px}
+
+section{padding:88px 6%}
+.sec-wrap{max-width:1100px;margin:0 auto}
+.sec-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--text);margin-bottom:48px}
+
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.photo-box{width:200px;height:200px;border-radius:16px;background:var(--purple-light);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--muted);text-align:center;padding:16px;margin-bottom:24px}
+.about-text p{color:var(--muted);margin-bottom:14px;line-height:1.85;font-size:0.95rem}
+.about-text p strong{color:var(--text)}
+.info-cards{display:flex;flex-direction:column;gap:12px}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;border-left:3px solid var(--purple)}
+.info-card .lbl{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin-bottom:5px}
+.info-card .val{font-size:0.88rem;color:var(--text);font-weight:500}
+.info-card .sub{font-size:0.8rem;color:var(--muted);margin-top:2px}
+
+#skills{background:var(--bg)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.sg-title{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin-bottom:18px}
+.skill-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.skill-name{font-size:0.85rem;color:var(--text);font-weight:500}
+.bar-wrap{width:90px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--purple),var(--purple-mid))}
+
+#projects{background:var(--bg2)}
+.projects-list{display:flex;flex-direction:column;gap:12px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 32px;transition:border-color 0.2s,transform 0.2s}
+.proj-card:hover{border-color:var(--purple);transform:translateY(-2px)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.proj-title{font-size:1rem;font-weight:700;color:var(--text)}
+.proj-date{font-size:0.75rem;color:var(--muted);background:var(--purple-light);padding:3px 10px;border-radius:999px;white-space:nowrap;margin-left:12px}
+.proj-course{font-size:0.75rem;color:var(--purple);font-weight:600;margin-bottom:10px}
+.proj-desc{font-size:0.88rem;color:var(--muted);line-height:1.78;margin-bottom:14px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ptag{padding:3px 11px;background:var(--purple-light);color:var(--purple);border-radius:999px;font-size:0.73rem;font-weight:500}
+
+#experience{background:var(--bg)}
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--border);position:relative}
+.exp-item:last-child{border-bottom:none}
+.exp-date{font-size:0.78rem;color:var(--muted);padding-top:4px;font-weight:500}
+.exp-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.exp-org{font-size:0.82rem;color:var(--purple);font-weight:600;margin-bottom:10px}
+.exp-desc{font-size:0.87rem;color:var(--muted);line-height:1.78}
+
+#coursework{background:var(--bg2)}
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.course-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;transition:border-color 0.2s}
+.course-card:hover{border-color:var(--purple)}
+.course-code{font-size:0.7rem;color:var(--purple);font-weight:700;letter-spacing:0.06em;margin-bottom:4px}
+.course-name{font-size:0.83rem;color:var(--text);font-weight:500}
+
+#awards{background:var(--bg)}
+.award-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 28px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s}
+.award-card:hover{border-color:var(--purple)}
+.award-icon{width:40px;height:40px;border-radius:10px;background:var(--purple-light);display:flex;align-items:center;justify-content:center;font-size:18px;margin-right:16px;flex-shrink:0}
+.award-inner{display:flex;align-items:center;flex:1}
+.award-title{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.award-sub{font-size:0.8rem;color:var(--muted)}
+.award-date{font-size:0.75rem;color:var(--muted);background:var(--purple-light);padding:4px 12px;border-radius:999px;white-space:nowrap;margin-left:16px}
+
+#contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-left h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:14px}
+.contact-left p{color:var(--muted);line-height:1.85;margin-bottom:24px;font-size:0.92rem}
+.c-links{display:flex;flex-direction:column;gap:10px}
+.c-link{display:flex;align-items:center;gap:12px;color:var(--muted);text-decoration:none;font-size:0.88rem;transition:color 0.2s}
+.c-link:hover{color:var(--purple)}
+.c-icon{width:34px;height:34px;border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--card)}
+.otp-badge{display:inline-block;margin-top:20px;padding:8px 18px;background:var(--purple-light);color:var(--purple);border-radius:8px;font-size:0.78rem;font-weight:600}
+.contact-right{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px}
+.contact-right h4{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.contact-right p{color:var(--muted);font-size:0.85rem;margin-bottom:20px}
+.roles{display:flex;flex-direction:column;gap:8px}
+.role{display:flex;align-items:center;gap:10px;font-size:0.87rem;color:var(--text);font-weight:500}
+.role-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0}
+
+footer{text-align:center;padding:28px 6%;border-top:1px solid var(--border);font-size:0.78rem;color:var(--muted);background:var(--bg)}
+
+@media(max-width:768px){
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">VB</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#coursework">Courses</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Informatics Graduate &nbsp;·&nbsp; Boston, MA &nbsp;·&nbsp; OPT Available</div>
+    <h1 class="hero-name">Vijaya Laxmi<br/><span>Boda</span></h1>
+    <p class="hero-desc">Aspiring SAP IBP Consultant and Business Analyst. I turn business problems into data-driven decisions — through supply chain analytics, BI dashboards, and structured planning frameworks.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">SAP IBP</span>
+      <span class="hero-tag">Power BI</span>
+      <span class="hero-tag">Tableau</span>
+      <span class="hero-tag">MS Excel</span>
+      <span class="hero-tag">Demand Planning</span>
+      <span class="hero-tag">S&OP</span>
+      <span class="hero-tag">Business Analysis</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">8</div><div class="stat-label">Projects completed</div></div>
+      <div><div class="stat-num">2+</div><div class="stat-label">Years of experience</div></div>
+      <div><div class="stat-num">M.P.S.</div><div class="stat-label">Informatics, NEU 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">About Me</p>
+    <h2 class="sec-title">My Story</h2>
+    <div class="about-grid">
+      <div>
+        <img src="photo.jpg" alt="Vijaya Laxmi Boda" style="width:200px;height:200px;border-radius:16px;object-fit:cover;border:2px solid var(--border);margin-bottom:24px;display:block"/>
+        <div class="about-text">
+          <p>Growing up, I was inspired by how entrepreneurs like <strong>Jeff Bezos</strong> built businesses that could reach millions with a single click. From early on I knew I wanted to combine technology and business — which is why I chose <strong>B.Com in Computer Applications</strong> at Osmania University.</p>
+          <p>After graduating I worked at <strong>Retunes IT Media</strong> as a Software Consultant, building web applications for the Government of Andhra Pradesh. That experience showed me how data and information directly shape organizational decisions.</p>
+          <p>I came to <strong>Northeastern University, Boston</strong> to build analytical and systems thinking skills. Now I am actively building expertise in <strong>SAP IBP</strong> — demand planning, S&OP, supply planning — with a goal of becoming a <strong>SAP IBP Consultant</strong> and eventually starting my own business.</p>
+        </div>
+      </div>
+      <div class="info-cards">
+        <div class="info-card"><div class="lbl">Education</div><div class="val">M.P.S. Informatics</div><div class="sub">Northeastern University, Boston · 2026</div></div>
+        <div class="info-card"><div class="lbl">Previous Education</div><div class="val">B.Com Computer Applications</div><div class="sub">Osmania University, Hyderabad · 2022</div></div>
+        <div class="info-card"><div class="lbl">Work Experience</div><div class="val">Associate Functional Business Analyst</div><div class="sub">Retunes IT Media · 2022–2024</div></div>
+        <div class="info-card"><div class="lbl">Currently Building</div><div class="val">SAP IBP Hands-on Project</div><div class="sub">Demand Planning & S&OP Simulation on live server</div></div>
+        <div class="info-card"><div class="lbl">Open To</div><div class="val">SAP IBP Analyst · Healthcare BA · Health IT Analyst</div><div class="sub">Full-time · OPT authorized</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">Skills</p>
+    <h2 class="sec-title">What I Work With</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="sg-title">SAP IBP</div>
+        <div class="skill-row"><span class="skill-name">Demand Planning</span><div class="bar-wrap"><div class="bar" style="width:68%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">S&OP Planning</span><div class="bar-wrap"><div class="bar" style="width:65%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Supply Planning</span><div class="bar-wrap"><div class="bar" style="width:62%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Control Tower</span><div class="bar-wrap"><div class="bar" style="width:60%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">IBP for Inventory</span><div class="bar-wrap"><div class="bar" style="width:55%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Data Visualization</div>
+        <div class="skill-row"><span class="skill-name">Power BI + DAX</span><div class="bar-wrap"><div class="bar" style="width:85%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Tableau</span><div class="bar-wrap"><div class="bar" style="width:82%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">MS Excel</span><div class="bar-wrap"><div class="bar" style="width:88%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Looker Studio</span><div class="bar-wrap"><div class="bar" style="width:72%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Business Analysis</div>
+        <div class="skill-row"><span class="skill-name">Requirements Gathering</span><div class="bar-wrap"><div class="bar" style="width:82%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Stakeholder Communication</span><div class="bar-wrap"><div class="bar" style="width:80%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Process Documentation</span><div class="bar-wrap"><div class="bar" style="width:78%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Usability Testing</span><div class="bar-wrap"><div class="bar" style="width:75%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Project Management</div>
+        <div class="skill-row"><span class="skill-name">Scrum / Agile</span><div class="bar-wrap"><div class="bar" style="width:78%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">PMBOK Framework</span><div class="bar-wrap"><div class="bar" style="width:75%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Microsoft Project</span><div class="bar-wrap"><div class="bar" style="width:72%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Currently Building</div>
+        <div class="skill-row"><span class="skill-name">SAP IBP Certification</span><div class="bar-wrap"><div class="bar" style="width:50%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">SAP IBP Live Project</span><div class="bar-wrap"><div class="bar" style="width:40%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">SQL (upcoming)</span><div class="bar-wrap"><div class="bar" style="width:10%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">SAP Joule (upcoming)</span><div class="bar-wrap"><div class="bar" style="width:5%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">Projects</p>
+    <h2 class="sec-title">Selected Work</h2>
+    <div class="projects-list">
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">FIA Manipulation Detection Analysis Dashboard</div><div class="proj-date">Jun 2026</div></div>
+        <div class="proj-course">ITC6040 Informatics Capstone · Sponsor: Feminine Intelligence Agency</div>
+        <div class="proj-desc">Studied whether LLMs can detect emotional manipulation when the narrator doesn't yet recognize the harm. As Analytical Design Lead, defined the detection metrics, suppression gap calculation, and six-sheet Tableau dashboard structure. Served as navigation observer during user testing and co-led post-testing analysis. Key finding: detection doubled from 17% to 40%; 65% of misses were suppressions not blindness.</div>
+        <div class="proj-tags"><span class="ptag">Tableau</span><span class="ptag">Analytical Design</span><span class="ptag">Metric Definition</span><span class="ptag">Usability Testing</span><span class="ptag">Research Analysis</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">Walmart AI Demand Forecasting Dashboard</div><div class="proj-date">Apr 2026</div></div>
+        <div class="proj-course">ALY6060 Decision Support & Business Intelligence</div>
+        <div class="proj-desc">Analyzed AI-driven demand forecasting using social media engagement data for Walmart. Built a Looker Studio dashboard showing actual vs. forecasted sales, store-type segmentation, and engagement-to-sales correlation. Connected findings directly to S&OP and demand planning concepts from SAP IBP.</div>
+        <div class="proj-tags"><span class="ptag">Looker Studio</span><span class="ptag">Demand Forecasting</span><span class="ptag">S&OP</span><span class="ptag">AI Analytics</span><span class="ptag">Supply Chain</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">4M Analytics — BI & Industry 4.0 Report</div><div class="proj-date">Mar 2026</div></div>
+        <div class="proj-course">ALY6060 Decision Support & Business Intelligence</div>
+        <div class="proj-desc">Analyzed how 4M Analytics uses data analytics and BI for underground utility mapping. Built a Power BI dashboard with 5 visuals including mapping volume by state, data completeness trends, key influencers, and annual processing hours. Connected analysis to SAP IBP principles of transparency and planning accuracy.</div>
+        <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Business Intelligence</span><span class="ptag">Industry 4.0</span><span class="ptag">SAP IBP Concepts</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">Top 5 US Stock Performance Dashboard</div><div class="proj-date">Feb 2026</div></div>
+        <div class="proj-course">ALY6060 Decision Support & Business Intelligence</div>
+        <div class="proj-desc">Analyzed 2024–2025 stock data for Apple, Microsoft, Amazon, Tesla, and Google using Tableau Public. Built 5 visuals — trend lines, scatter plots, area charts, and pie charts — to recommend stock split decisions for each company. Published live on Tableau Public.</div>
+        <div class="proj-tags"><span class="ptag">Tableau</span><span class="ptag">Stock Analysis</span><span class="ptag">Data Visualization</span><span class="ptag">Decision Support</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">CEO Performance Dashboard</div><div class="proj-date">Nov 2025</div></div>
+        <div class="proj-course">ALY6060 Decision Support & Business Intelligence</div>
+        <div class="proj-desc">Built a Power BI dashboard analyzing 10 major company CEOs — education breakdown, revenue vs. tenure scatter plot, CEO age comparison bar chart, and interactive pivot table. Used filters for industry, education, and gender to support executive-level decision making.</div>
+        <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">Executive Dashboards</span><span class="ptag">Data Storytelling</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">Stakeholder Collaboration Dashboard</div><div class="proj-date">Nov 2025</div></div>
+        <div class="proj-course">ALY6060 Decision Support & Business Intelligence</div>
+        <div class="proj-desc">Designed a Power BI dashboard analyzing stakeholder communication patterns — information preferences, comfort levels, communication styles, and motivation factors. Built 5 visuals including bar charts, donut charts, and area charts from survey data.</div>
+        <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">Stakeholder Analysis</span><span class="ptag">Survey Analytics</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">IPOS Project — SAP IBP Foundations & Consulting Mindset</div><div class="proj-date">Oct 2025</div></div>
+        <div class="proj-course">INT6940 Experiential Network Projects</div>
+        <div class="proj-desc">Applied project coordination, analytics thinking, and SAP IBP foundations in a real-world experiential project. Developed a strategic consulting mindset — mapping demand planning, supply planning, and S&OP concepts to actual business workflows. Produced a SWOT analysis and SMART development plan aligned with a SAP IBP consulting career path.</div>
+        <div class="proj-tags"><span class="ptag">SAP IBP</span><span class="ptag">Demand Planning</span><span class="ptag">S&OP</span><span class="ptag">Consulting Mindset</span><span class="ptag">Agile</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><div class="proj-title">Microsoft Project Luminous — Energy Efficiency Scheduling</div><div class="proj-date">Sep 2025</div></div>
+        <div class="proj-course">Project Management Course</div>
+        <div class="proj-desc">Built a full 70-task project schedule for an energy efficiency lifecycle using Microsoft Project — task sequencing, resource allocation, milestone tracking, and Gantt chart management. Completed with no prior MS Project experience before this assignment.</div>
+        <div class="proj-tags"><span class="ptag">Microsoft Project</span><span class="ptag">Gantt Charts</span><span class="ptag">PMBOK</span><span class="ptag">Resource Management</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">Experience & Education</p>
+    <h2 class="sec-title">Background</h2>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date">2024 – 2026</div>
+        <div>
+          <div class="exp-title">Master of Professional Studies — Informatics</div>
+          <div class="exp-org">Northeastern University, Boston</div>
+          <div class="exp-desc">Capstone: FIA Manipulation Detection Analysis Dashboard — Analytical Design Lead. Courses: Decision Support & BI, Information Systems Design, IT Strategy & Governance, Database Management, Project Management, HCI, Experiential Network Projects.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2022 – 2024</div>
+        <div>
+          <div class="exp-title">Associate Functional Business Analyst</div>
+          <div class="exp-org">Retunes IT Media</div>
+          <div class="exp-desc">Client-facing role building web applications for the Government of Andhra Pradesh. Gathered requirements, managed data loading, built and deployed applications, handled client communication and error resolution. Promoted from intern to full consultant.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2019 – 2022</div>
+        <div>
+          <div class="exp-title">B.Com — Computer Applications</div>
+          <div class="exp-org">Annie Besant Women's Degree College, Osmania University, Hyderabad</div>
+          <div class="exp-desc">Studied IT, RDBMS, Cyber Security, Business Statistics, Business Law, and Business Organization & Management. Won Best Seminar of the Month for presentation on E-Commerce Platforms.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coursework">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">Northeastern University</p>
+    <h2 class="sec-title">Coursework</h2>
+    <div class="course-grid">
+      <div class="course-card"><div class="course-code">ALY6060</div><div class="course-name">Decision Support & Business Intelligence</div></div>
+      <div class="course-card"><div class="course-code">ITC6000</div><div class="course-name">Database Management Systems</div></div>
+      <div class="course-card"><div class="course-code">ITC6035</div><div class="course-name">Information Technology Project Management</div></div>
+      <div class="course-card"><div class="course-code">ITC6040</div><div class="course-name">Informatics Capstone</div></div>
+      <div class="course-card"><div class="course-code">ITC6420</div><div class="course-name">Intro Cloud Compute Apps & Management</div></div>
+      <div class="course-card"><div class="course-code">ITC6450</div><div class="course-name">Adv. Cloud Computing Apps & Management</div></div>
+      <div class="course-card"><div class="course-code">ITC6460</div><div class="course-name">Cloud Analytics</div></div>
+      <div class="course-card"><div class="course-code">ITC6520</div><div class="course-name">Network Protection & Cloud Security</div></div>
+      <div class="course-card"><div class="course-code">PJM5900</div><div class="course-name">Foundations of Project Management</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">Achievements</p>
+    <h2 class="sec-title">Awards & Recognition</h2>
+    <div class="award-card">
+      <div class="award-inner">
+        <div class="award-icon">🏆</div>
+        <div>
+          <div class="award-title">Best Seminar of the Month</div>
+          <div class="award-sub">Annie Besant Women's Degree College · "E-Commerce Platforms — Advantages & Disadvantages"</div>
+        </div>
+      </div>
+      <div class="award-date">2021</div>
+    </div>
+    <div class="award-card">
+      <div class="award-inner">
+        <div class="award-icon">🎓</div>
+        <div>
+          <div class="award-title">Informatics Capstone — Analytical Design Lead</div>
+          <div class="award-sub">Northeastern University · FIA Manipulation Detection Dashboard · Live sponsor project</div>
+        </div>
+      </div>
+      <div class="award-date">Jun 2026</div>
+    </div>
+    <div class="award-card">
+      <div class="award-inner">
+        <div class="award-icon">📈</div>
+        <div>
+          <div class="award-title">Promoted from Intern to Software Consultant</div>
+          <div class="award-sub">Retunes IT Media · Government of Andhra Pradesh web applications</div>
+        </div>
+      </div>
+      <div class="award-date">2023</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-wrap">
+    <p class="sec-eyebrow">Contact</p>
+    <h2 class="sec-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h3>From data to<br/>decisions.</h3>
+        <p>I am currently on OPT and actively looking for full-time opportunities in SAP IBP consulting, supply chain analytics, and healthcare business analysis. Based in Boston, MA.</p>
+        <div class="c-links">
+          <a href="mailto:youremail@northeastern.edu" class="c-link">
+            <div class="c-icon">✉</div>youremail@northeastern.edu
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" class="c-link" target="_blank">
+            <div class="c-icon">in</div>linkedin.com/in/yourprofile
+          </a>
+        </div>
+        <div class="otp-badge">OPT Authorized · Available Full-Time</div>
+      </div>
+      <div class="contact-right">
+        <h4>Open to full-time roles</h4>
+        <p>Particularly interested in opportunities in these areas:</p>
+        <div class="roles">
+          <div class="role"><div class="role-dot"></div>SAP IBP Analyst / Consultant</div>
+          <div class="role"><div class="role-dot"></div>Supply Chain Business Analyst</div>
+          <div class="role"><div class="role-dot"></div>Healthcare Business Analyst</div>
+          <div class="role"><div class="role-dot"></div>Health IT Analyst</div>
+          <div class="role"><div class="role-dot"></div>Business Intelligence Analyst</div>
+          <div class="role"><div class="role-dot"></div>Data Analyst (Supply Chain / Healthcare)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Vijaya Laxmi Boda &nbsp;·&nbsp; M.P.S. Informatics, Northeastern University &nbsp;·&nbsp; Boston, MA</p>
+</footer>
+
+</body>
+</html>
